@@ -1,0 +1,5 @@
+name: mattermost_dart
+description: A simple Mattermost API implementation in dart
+
+dependencies:
+  http: "^0.11.3+16"
