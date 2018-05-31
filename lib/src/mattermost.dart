@@ -82,8 +82,9 @@ class Mattermost {
   Future<String> getChannelId(String channelName) async {
     // Cache channel id
     if (!_channelMap.containsKey(channelName)) {
+      String teamId = await getTeamId();
       String channelId = (await _restGateway
-          .get("/teams/$_teamId/channels/name/$channelName"))["id"];
+          .get("/teams/$teamId/channels/name/$channelName"))["id"];
       _channelMap[channelName] = channelId;
     }
     return _channelMap[channelName];
